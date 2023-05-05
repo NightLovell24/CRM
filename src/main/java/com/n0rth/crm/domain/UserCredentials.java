@@ -22,6 +22,17 @@ public class UserCredentials {
     @Column(name = "mail")
     private String mail;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "password")
     private String password;
+
+    @Column(name = "is_enabled")
+    private boolean isEnabled = true;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+
 }

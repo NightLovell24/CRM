@@ -21,9 +21,6 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
-
     @OneToOne
     @JoinColumn(name = "user_credentials_id")
     private UserCredentials userCredentials;

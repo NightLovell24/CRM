@@ -2,7 +2,6 @@
 create table admin
 (
     id                  bigserial not null,
-    name                varchar(255),
     user_credentials_id bigint,
     primary key (id)
 );
@@ -40,7 +39,6 @@ create table deposit
 create table managers
 (
     id                  bigserial not null,
-    name                varchar(255),
     user_credentials_id bigint,
     manager_id          bigint,
     primary key (id)
@@ -48,9 +46,12 @@ create table managers
 --USER_CREDENTIALS
 create table user_credentials
 (
-    id       bigserial not null,
-    mail     varchar(255),
-    password varchar(255),
+    id        bigserial not null,
+    mail      varchar(255),
+    name      varchar(255),
+    is_enabled boolean DEFAULT true,
+    role      varchar(255),
+    password  varchar(255),
     primary key (id)
 );
 alter table if exists admin
