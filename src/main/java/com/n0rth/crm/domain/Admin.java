@@ -24,7 +24,4 @@ public class Admin {
     @JoinColumn(name = "user_credentials_id")
     private UserCredentials userCredentials;
 
-    @OneToMany
-    @JoinColumn(name = "manager_id")
-    private List<Manager> managers;
 }

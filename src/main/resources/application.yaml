@@ -11,5 +11,8 @@ spring:
     baseline-on-migrate: true
 jwt:
   token:
-    secret : n0rth
+    secret : NorthSideWhiteWorldWide1488RunarGallGoildiSkaldhakkerSavager
     expired : 3600000
+logging:
+  level:
+    org.springframework.security: TRACE

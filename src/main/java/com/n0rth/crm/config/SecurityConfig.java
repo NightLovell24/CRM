@@ -49,6 +49,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
+
+//        http.authorizeHttpRequests().anyRequest().permitAll();
+
+
         http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
@@ -58,11 +63,6 @@ public class SecurityConfig {
                 .requestMatchers(ADMIN_ENDPOINT).hasAuthority(UserRole.ADMIN.name())
                 .anyRequest().authenticated().
                 and().apply(new JwtConfigurer(jwtTokenProvider))
-                .and().
-                formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/auth").permitAll()
-                .failureUrl("/login-error")
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

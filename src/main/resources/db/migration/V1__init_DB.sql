@@ -35,12 +35,11 @@ create table deposit
     manager_id    bigint,
     primary key (id)
 );
---MANAGERS
-create table managers
+--MANAGER
+create table manager
 (
     id                  bigserial not null,
     user_credentials_id bigint,
-    manager_id          bigint,
     primary key (id)
 );
 --USER_CREDENTIALS
@@ -57,12 +56,11 @@ create table user_credentials
 alter table if exists admin
     add constraint admin_fk_user_credentials foreign key (user_credentials_id) references user_credentials;
 alter table if exists client
-    add constraint client_fk_managers foreign key (manager_id) references managers;
+    add constraint client_fk_manager foreign key (manager_id) references manager;
 alter table if exists client_comment
     add constraint client_comment_fk_client foreign key (client_id) references client;
 alter table if exists deposit
-    add constraint deposit_fk_managers foreign key (manager_id) references managers;
-alter table if exists managers
-    add constraint managers_fk_user_credentials foreign key (user_credentials_id) references user_credentials;
-alter table if exists managers
-    add constraint managers_fk_admin foreign key (manager_id) references admin;
+    add constraint deposit_fk_manager foreign key (manager_id) references manager;
+alter table if exists manager
+    add constraint manager_fk_user_credentials foreign key (user_credentials_id) references user_credentials;
+
