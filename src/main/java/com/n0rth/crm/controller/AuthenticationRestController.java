@@ -31,12 +31,11 @@ public class AuthenticationRestController {
 
     private final UserCredentialsService userService;
 
-    private final PasswordEncoder passwordEncoder;
-
     @PostMapping("login")
     public AuthenticationResponseDto login(@RequestBody AuthenticationRequestDto requestDto) {
         try {
             String username = requestDto.getUsername();
+            log.info("Receiving data : " + requestDto.toString());
             authenticationManager
                     .authenticate(new UsernamePasswordAuthenticationToken(username, requestDto.getPassword()));
             UserCredentials user = userService.findByName(username);

@@ -1,8 +1,6 @@
 package com.n0rth.crm.dto;
 
 
-import com.n0rth.crm.domain.Client;
-import com.n0rth.crm.domain.Deposit;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
